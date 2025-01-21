@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   });
 
   // Wait for the prediction to complete
-  let finalPrediction = await replicate.wait(prediction);
+  const finalPrediction = await replicate.wait(prediction);
 
   if (finalPrediction?.error) {
     return NextResponse.json({ detail: finalPrediction.error }, { status: 500 });

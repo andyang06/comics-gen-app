@@ -1,18 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from 'react';
 
-const heroes = [
-  { id: 1, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero1", alt: "Speedster hero" },
-  { id: 2, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero2", alt: "Warrior hero" },
-  { id: 3, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero3", alt: "Dark hero" },
-  { id: 4, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero4", alt: "Detective hero" },
-  { id: 5, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero5", alt: "Cosmic hero" },
-  { id: 6, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero6", alt: "Young hero" },
-  { id: 7, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero7", alt: "Modern hero" },
-  { id: 8, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero8", alt: "Powerful hero" },
-];
+// const heroes = [
+//   { id: 1, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero1", alt: "Speedster hero" },
+//   { id: 2, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero2", alt: "Warrior hero" },
+//   { id: 3, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero3", alt: "Dark hero" },
+//   { id: 4, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero4", alt: "Detective hero" },
+//   { id: 5, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero5", alt: "Cosmic hero" },
+//   { id: 6, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero6", alt: "Young hero" },
+//   { id: 7, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero7", alt: "Modern hero" },
+//   { id: 8, src: "https://api.dicebear.com/7.x/personas/svg?seed=hero8", alt: "Powerful hero" },
+// ];
 
 interface ComicPanel {
   prompt: string;
