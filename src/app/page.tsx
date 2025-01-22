@@ -78,34 +78,38 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gradient-to-br from-[#a8d5d5] via-[#c5e1dc] to-[#f0ead2] text-gray-800 relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Floating orbs */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute top-40 right-20 w-40 h-40 bg-white/20 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-white/10 rounded-full blur-2xl animate-float-slow" />
-        <div className="absolute -bottom-10 right-1/3 w-36 h-36 bg-white/15 rounded-full blur-3xl animate-float" />
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Cartoon clouds - now with floating animation */}
+        <div className="absolute top-10 left-10 w-32 h-16 bg-blue-100 rounded-full animate-float-slow before:content-[''] before:absolute before:top-1/2 before:left-6 before:w-16 before:h-16 before:bg-blue-100 before:rounded-full before:-translate-y-1/2 after:content-[''] after:absolute after:top-1/2 after:right-6 after:w-16 after:h-16 after:bg-blue-100 after:rounded-full after:-translate-y-1/2"></div>
+        <div className="absolute top-20 right-20 w-32 h-16 bg-blue-100 rounded-full animate-float-slower before:content-[''] before:absolute before:top-1/2 before:left-6 before:w-16 before:h-16 before:bg-blue-100 before:rounded-full before:-translate-y-1/2 after:content-[''] after:absolute after:top-1/2 after:right-6 after:w-16 after:h-16 after:bg-blue-100 after:rounded-full after:-translate-y-1/2"></div>
 
-        {/* Geometric patterns */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-16 h-16 border-2 border-gray-700 rounded-lg rotate-45 animate-spin-slow" />
-          <div className="absolute top-1/3 right-1/4 w-24 h-24 border-2 border-gray-700 rounded-full animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-gray-700 rotate-12 animate-bounce-slow" />
-        </div>
+        {/* Cartoon stars - now with twinkling animation */}
+        <div className="absolute top-40 left-1/4 w-8 h-8 bg-yellow-200 rotate-45 animate-twinkle"></div>
+        <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-yellow-200 rotate-45 animate-twinkle-delayed"></div>
 
-        {/* Comic-style dots pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-12 gap-8 w-full h-full">
-            {[...Array(48)].map((_, i) => (
-              <div key={i} className="w-2 h-2 bg-gray-800 rounded-full animate-pulse-slow" />
-            ))}
-          </div>
-        </div>
+        {/* Speech bubbles - now with pulsing animation */}
+        <div className="absolute top-1/4 right-10 w-24 h-20 bg-white rounded-2xl animate-pulse-slow before:content-[''] before:absolute before:bottom-0 before:right-4 before:w-6 before:h-6 before:bg-white before:rotate-45"></div>
+        <div className="absolute bottom-1/4 left-10 w-24 h-20 bg-white rounded-2xl animate-pulse-slower before:content-[''] before:absolute before:bottom-0 before:left-4 before:w-6 before:h-6 before:bg-white before:rotate-45"></div>
+
+        {/* Squiggly lines - now with wave animation */}
+        <div className="absolute left-1/3 bottom-20 w-32 h-1 bg-purple-300 rounded-full transform rotate-12 animate-wave"></div>
+        <div className="absolute right-1/3 top-32 w-32 h-1 bg-purple-300 rounded-full transform -rotate-12 animate-wave-delayed"></div>
+
+        {/* Circles - now with spin animation */}
+        <div className="absolute left-20 top-1/2 w-16 h-16 rounded-full border-4 border-pink-200 animate-spin-slow"></div>
+        <div className="absolute right-32 bottom-40 w-12 h-12 rounded-full border-4 border-green-200 animate-spin-reverse"></div>
+
+        {/* Zigzag */}
+        <div className="absolute left-1/2 top-1/3 w-24 h-24 bg-gradient-to-br from-orange-200 to-transparent animate-float-slow"></div>
       </div>
 
       {/* Content */}
-      <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-center row-start-1 mb-8 relative">
+      <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-center row-start-1 mb-2 relative">
         AI Comic Generator
       </h1>
+      <p className="text-xl sm:text-2xl text-center mb-8 text-gray-600">
+        Created by: Andy Yang
+      </p>
 
       <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-4xl relative z-10">
         <form onSubmit={handleSubmit} className="w-full flex flex-col sm:flex-row gap-4">

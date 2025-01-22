@@ -30,14 +30,38 @@ export async function POST(request: Request) {
     },
   });
 
-  // Wait for the prediction to complete
   const finalPrediction = await replicate.wait(prediction);
 
   if (finalPrediction?.error) {
     return NextResponse.json({ detail: finalPrediction.error }, { status: 500 });
   }
 
-  // Return the output array directly
+  // Save prompt and generated images to backend
+  try {
+    const images = finalPrediction.output;
+    // Save each generated image URL with its prompt
+    await Promise.all(images.map(async (imageUrl: string) => {
+      const response = await fetch('https://sundai-backend-1095860743608.us-east4.run.app/generations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+          image_url: imageUrl
+        })
+      });
+
+      if (!response.ok) {
+        console.error('Failed to save prompt and image to backend:', await response.text());
+      }
+    }));
+  } catch (error) {
+    console.error('Error saving to backend:', error);
+    // Continue with the response even if saving to backend fails
+  }
+
+  // Return the output array as before
   return NextResponse.json({ output: finalPrediction.output }, { status: 200 });
 }
 

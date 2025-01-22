@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const { prompt } = await request.json();
 
     const systemPrompt = `
-      Create a 3-panel comic story about delts' adventure. For each panel, provide:
+      Create a 6-panel comic story about delts' adventure. For each panel, provide:
       1. An image generation prompt that includes 'delts' and ends with 'cartoonish style, warm colors'
       2. A caption that refers to the person as 'Andy'
 
